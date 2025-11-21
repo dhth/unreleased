@@ -1,8 +1,8 @@
 mod date;
+mod html;
+mod output;
 mod stdout;
 #[cfg(test)]
 mod testdata;
-mod html;
-mod output;
 
 pub use output::*;

@@ -124,7 +124,7 @@ pub enum OutputFormat {
 
 impl Display for OutputFormat {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let format  = match self {
+        let format = match self {
             OutputFormat::Stdout => "stdout",
             OutputFormat::Html => "html",
         };

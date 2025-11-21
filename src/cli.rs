@@ -40,7 +40,11 @@ pub enum UnreleasedCommand {
         )]
         html_output_path: PathBuf,
         /// Title for HTML report
-        #[arg(long = "html-title", value_name = "STRING", default_value = "unreleased")]
+        #[arg(
+            long = "html-title",
+            value_name = "STRING",
+            default_value = "unreleased"
+        )]
         html_title: String,
         /// Path to custom HTML template file
         #[arg(long = "html-template", value_name = "PATH")]
