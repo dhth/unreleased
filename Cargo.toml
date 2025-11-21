@@ -1,10 +1,10 @@
 [package]
 name = "unreleased"
-version = "0.1.0"
+version = "0.1.0-alpha.1"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/dhth/unreleased"
-description = "see the commits to your GitHub repos since their last release"
+description = "view the commits to your GitHub repos since their last release"
 homepage = "https://github.com/dhth/unreleased"
 keywords = [
     "cli",
@@ -40,3 +40,12 @@ insta-cmd = "0.6.0"
 [lints.clippy]
 unwrap_used = "deny"
 expect_used = "deny"
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+strip = "symbols"
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"

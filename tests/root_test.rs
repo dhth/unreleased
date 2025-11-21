@@ -19,7 +19,7 @@ fn shows_help() {
     success: true
     exit_code: 0
     ----- stdout -----
-    unreleased shows the commits to your GitHub repos since their last release
+    View the commits to your GitHub repos since their last release
 
     Usage: unreleased [OPTIONS] <COMMAND>
 
