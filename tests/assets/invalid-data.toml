@@ -1,0 +1,15 @@
+[[repos]]
+repo = "owner/repo-a"
+
+[[repos]]
+repo = "ownerrepo-b"
+
+[[repos]]
+repo = "owner/"
+
+[[repos]]
+repo = "/repo"
+
+[[repos]]
+repo = "owner/repo-e"
+head_ref = ""

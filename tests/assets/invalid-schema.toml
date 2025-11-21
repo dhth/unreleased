@@ -1,0 +1,6 @@
+[[repos]]
+repo = "owner/repo-a"
+
+[[repos]]
+repo = "owner/repo-b"
+consider_prereleases = "yes"

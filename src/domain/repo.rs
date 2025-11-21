@@ -7,7 +7,7 @@ const DEFAULT_HEAD_REF: &str = "main";
 #[cfg_attr(test, derive(serde::Serialize))]
 pub struct RawRepo {
     pub repo: String,
-    pub base_ref: Option<String>,
+    pub head_ref: Option<String>,
     pub consider_prereleases: Option<bool>,
 }
 
@@ -88,20 +88,20 @@ impl TryFrom<RawRepo> for Repo {
             }
         };
 
-        let maybe_head_ref = match value.base_ref.as_deref().map(|r| r.trim()) {
+        let maybe_head_ref = match value.head_ref.as_deref().map(|r| r.trim()) {
             Some("") => {
-                errors.add_error("base_ref is empty");
+                errors.add_error("head_ref is empty");
                 None
             }
             Some(r) => Some(r),
-            None => None,
+            None => Some(DEFAULT_HEAD_REF),
         };
 
         match (maybe_owner, maybe_repo, maybe_head_ref) {
-            (Some(owner), Some(repo), head_ref) => Ok(Repo {
+            (Some(owner), Some(repo), Some(head_ref)) => Ok(Repo {
                 owner: owner.to_string(),
                 repo: repo.to_string(),
-                head_ref: head_ref.unwrap_or(DEFAULT_HEAD_REF).to_string(),
+                head_ref: head_ref.to_string(),
                 consider_prereleases: value.consider_prereleases.unwrap_or(false),
             }),
             _ => Err(errors),

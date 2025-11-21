@@ -20,7 +20,7 @@ pub enum UnreleasedCommand {
     /// Show unreleased commits for repos
     #[command(name = "run")]
     Run {
-        /// Path to the unreleased's file
+        /// Path to the unreleased's file (defaults to <YOUR_CONFIG_DIR>/unreleased/unreleased.toml)
         #[arg(long = "config-path", short = 'c', value_name = "PATH")]
         config_file_path: Option<PathBuf>,
         /// Regex to use for filtering repos
@@ -29,7 +29,7 @@ pub enum UnreleasedCommand {
         /// Output format
         #[arg(long = "output-format", short = 'o', default_value_t = OutputFormat::Stdout, value_name = "FORMAT")]
         output_format: OutputFormat,
-        /// Whether to use output text to stdout without color
+        /// Whether to output text to stdout without color
         #[arg(long = "stdout-plain")]
         stdout_plain_output: bool,
         /// Path for the HTML output file
