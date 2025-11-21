@@ -1,0 +1,142 @@
+---
+source: src/view/html.rs
+expression: html
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+        <title>versions</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: "Open Sans", sans-serif;
+            }
+            .changes-section {
+                font-family: "Fira Mono", monospace;
+            }
+            * {
+                scrollbar-width: thin;
+                scrollbar-color: #928374 #2e2c2c;
+            }
+            *::-webkit-scrollbar {
+                width: 8px;
+                height: 8px;
+            }
+            *::-webkit-scrollbar-track {
+                background: #282828;
+            }
+            *::-webkit-scrollbar-thumb {
+                background: #a594f940;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body class="bg-[#282828] overflow-y-scroll">
+        <div class="w-4/5 max-sm:w-full max-sm:px-4 mx-auto min-h-screen pt-8">
+            <h1 class="text-[#fbf1c7] text-3xl mb-4 font-semibold">
+                versions
+            </h1>
+            <div class="overflow-x-auto pt-2">
+                <div class="flex gap-4 items-center pb-4">
+                    <button class="bg-[#83a598] text-[#282828] font-semibold text-xs p-2 hover:bg-[#fabd2f]" onclick="toggleAllDetails()">
+                    Toggle All
+                    </button>
+                </div>
+                <div class="my-2 overflow-x-auto commit-log">
+                    <details>
+                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner&#x2F;app-one
+                            <span class="text-[#bdae93] text-xs ml-1">(1 commit)</span>
+                        </summary>
+                        <div class="max-sm:p-2 p-4 bg-[#2e2c2c] changes-section max-sm:text-xs text-sm">
+                            <div class="flex flex-col items-left gap-4 overflow-x-auto">
+                                <a class="text-[#928374]" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;compare&#x2F;v1.0.0...main" target="_blank">v1.0.0..main</a>
+                                <table class="w-full text-left max-sm:text-xs text-sm whitespace-nowrap">
+                                    <tbody>
+                                        <tr class="">
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">ae7de14</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">add tracing support</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">User A</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">Jan 15, 2025</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+                <div class="my-2 overflow-x-auto commit-log">
+                    <details>
+                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner&#x2F;app-two
+                            <span class="text-[#bdae93] text-xs ml-1">(3 commits)</span>
+                        </summary>
+                        <div class="max-sm:p-2 p-4 bg-[#2e2c2c] changes-section max-sm:text-xs text-sm">
+                            <div class="flex flex-col items-left gap-4 overflow-x-auto">
+                                <a class="text-[#928374]" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;compare&#x2F;v2.0.0...main" target="_blank">v2.0.0..main</a>
+                                <table class="w-full text-left max-sm:text-xs text-sm whitespace-nowrap">
+                                    <tbody>
+                                        <tr class="">
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">1443d43</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">add cli test for when no versions match app filter</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">User A</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">Jan 16, 2025</a></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">c536d77</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">allow filtering apps to run for (#3) commit</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">User B</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">Jan 16, 2025</a></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">2ff3e97</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">allow configuring table style (#2) commit</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">User A</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">Jan 15, 2025</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+                <div class="my-2 overflow-x-auto commit-log">
+                    <details>
+                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner&#x2F;app-three
+                            <span class="text-[#bdae93] text-xs ml-1">(0 commits)</span>
+                        </summary>
+                    </details>
+                </div>
+            </div>
+            <p class="text-[#928374] italic my-10 pt-2 border-t-2 border-[#92837433]">Built using <a class="font-bold" href="https://github.com/dhth/unreleased" target="_blank">unreleased</a></p>
+        </div>
+        <button id="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'instant'});"
+            class="hidden fixed bottom-4 left-4 z-50 bg-[#928374] text-[#282828] px-4 py-2 rounded-full shadow-lg hover:bg-[#d3869b] font-bold transition"
+            aria-label="Go to top">
+        ↑
+        </button>
+    </body>
+    <script>
+        const scrollToTopButton = document.getElementById("scrollToTop");
+        let allDetailsOpen = false;
+
+        function toggleAllDetails() {
+            allDetailsOpen = !allDetailsOpen;
+            document.querySelectorAll("details").forEach((detail) => {
+                detail.open = allDetailsOpen;
+            });
+        }
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                scrollToTopButton.classList.remove("hidden");
+            } else {
+                scrollToTopButton.classList.add("hidden");
+            }
+        });
+    </script>
+</html>

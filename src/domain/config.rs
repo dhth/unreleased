@@ -1,4 +1,7 @@
+use std::{fmt::Display, path::PathBuf};
+
 use super::repo::{RawRepo, Repo, RepoValidationError};
+use clap::ValueEnum;
 use regex::Regex;
 use serde::Deserialize;
 
@@ -88,4 +91,44 @@ where
     let config: Config = raw.try_into()?;
 
     Ok(config)
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct StdoutConfig {
+    pub plain_output: bool,
+}
+
+#[derive(Debug, Clone)]
+pub struct HtmlConfig {
+    pub output_path: PathBuf,
+    pub title: String,
+    pub template: Option<String>,
+}
+
+#[derive(Debug, Clone)]
+pub enum OutputType {
+    Stdout(StdoutConfig),
+    Html(HtmlConfig),
+}
+
+#[derive(Debug, Clone)]
+pub struct RunConfig {
+    pub output_type: OutputType,
+}
+
+#[derive(Debug, Clone, Copy, ValueEnum)]
+pub enum OutputFormat {
+    Stdout,
+    Html,
+}
+
+impl Display for OutputFormat {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let format = match self {
+            OutputFormat::Stdout => "stdout",
+            OutputFormat::Html => "html",
+        };
+
+        write!(f, "{}", format)
+    }
 }

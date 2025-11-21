@@ -1,6 +1,8 @@
 use serde::Deserialize;
 use std::fmt::{self, Display};
 
+const DEFAULT_HEAD_REF: &str = "main";
+
 #[derive(Debug, Deserialize)]
 #[cfg_attr(test, derive(serde::Serialize))]
 pub struct RawRepo {
@@ -99,8 +101,8 @@ impl TryFrom<RawRepo> for Repo {
             (Some(owner), Some(repo), head_ref) => Ok(Repo {
                 owner: owner.to_string(),
                 repo: repo.to_string(),
-                head_ref: head_ref.unwrap_or("main").to_string(),
-                consider_prereleases: value.consider_prereleases.unwrap_or(true),
+                head_ref: head_ref.unwrap_or(DEFAULT_HEAD_REF).to_string(),
+                consider_prereleases: value.consider_prereleases.unwrap_or(false),
             }),
             _ => Err(errors),
         }

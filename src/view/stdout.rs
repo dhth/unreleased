@@ -17,21 +17,31 @@ const AUTHOR_COLOR_POOL: [TableColor; 6] = [
 
 const COMMIT_MESSAGE_MAX_LENGTH: usize = 80;
 
-pub fn render_commit_logs(
+pub(super) fn render_output(
     logs: &[CommitLog],
-    reference_time: DateTime<Utc>,
     plain_output: bool,
+    reference_time: DateTime<Utc>,
 ) -> String {
     let mut output = String::new();
 
     for (i, log) in logs.iter().enumerate() {
+        let commits_word = if log.commits.len() == 1 {
+            "commit"
+        } else {
+            "commits"
+        };
+
         output.push_str(&format!(
-            "{}/{} {}..{}\n\n",
-            log.repo.owner, log.repo.repo, log.base_ref, log.head_ref
+            "{}/{} {}..{} ({} {})\n\n",
+            log.repo.owner,
+            log.repo.repo,
+            log.base_ref,
+            log.head_ref,
+            log.commits.len(),
+            commits_word,
         ));
 
         if log.commits.is_empty() {
-            output.push_str(" no commits\n\n");
             continue;
         }
 
@@ -100,7 +110,7 @@ fn truncate_message(message: &str, max_len: usize) -> String {
 mod tests {
     use std::collections::HashSet;
 
-    use super::super::testdata::get_result_and_commit_logs;
+    use super::super::testdata::get_test_commit_logs;
     use super::*;
     use crate::domain::{Author, Commit, CommitDetail, Repo};
     use chrono::TimeZone;
@@ -111,19 +121,21 @@ mod tests {
         let reference = Utc.with_ymd_and_hms(2025, 1, 16, 12, 0, 0).unwrap();
 
         // WHEN
-        let result = render_commit_logs(&get_result_and_commit_logs(), reference, true);
+        let result = render_output(&get_test_commit_logs(), true, reference);
 
         // THEN
         insta::assert_snapshot!(result, @r"
-        owner/app-one v1.0.0..main
+        owner/app-one v1.0.0..main (1 commit)
 
-         ae7de14  First commit  User A  1d ago 
+         ae7de14  add tracing support  User A  1d ago 
 
-        owner/app-two v2.0.0..main
+        owner/app-two v2.0.0..main (3 commits)
 
          1443d43  add cli test for when no versions match app filter  User A  30m ago 
          c536d77  allow filtering apps to run for (#3) commit         User B  1h ago  
-         2ff3e97  allow configuring table style (#2) commit           User A  1d ago
+         2ff3e97  allow configuring table style (#2) commit           User A  1d ago  
+
+        owner/app-three v0.1.0..main (0 commits)
         ");
     }
 
@@ -159,11 +171,11 @@ mod tests {
         };
 
         // WHEN
-        let result = render_commit_logs(&[log], reference, true);
+        let result = render_output(&[log], true, reference);
 
         // THEN
         insta::assert_snapshot!(result, @r"
-        owner/app-one v2.0.0..main
+        owner/app-one v2.0.0..main (1 commit)
 
          1443d43  add cli test for when no application versions match app filter (this commit i...  User A  30m ago
         ");
