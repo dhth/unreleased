@@ -38,12 +38,6 @@ impl Display for Repo {
     }
 }
 
-impl Repo {
-    pub fn full_name(&self) -> String {
-        format!("{}/{}", self.owner, self.repo)
-    }
-}
-
 #[derive(Debug)]
 pub struct RepoValidationError {
     errors: Vec<&'static str>,

@@ -96,7 +96,7 @@ fn build_html_data(commit_logs: &[CommitLog], title: &str, now: DateTime<Utc>) -
             };
 
             HtmlCommitLog {
-                repo: log.repo.full_name(),
+                repo: log.repo.to_string(),
                 base_ref: log.base_ref.to_string(),
                 head_ref: log.head_ref.to_string(),
                 compare_url,
