@@ -11,5 +11,5 @@ repo = "owner/"
 repo = "/repo"
 
 [[repos]]
-repo = "owner/repo-e"
+repo = ""
 head_ref = ""
