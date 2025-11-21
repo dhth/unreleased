@@ -20,6 +20,7 @@ impl Fixture {
     {
         let mut command = Command::new(&self.bin_path);
         command.args(args);
+        // Set an invalid token to ensure tests don't use real credentials
         command.env("UNRELEASED_GH_TOKEN", "invalid");
         command
     }
