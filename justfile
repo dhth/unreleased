@@ -47,7 +47,7 @@ publish-dry:
     cargo publish --dry-run --allow-dirty
 
 run *FLAGS:
-    cargo run -- run {{ FLAGS }}
+    cargo run -- report {{ FLAGS }}
 
 review *FLAGS:
     cargo insta test --review {{ FLAGS }}

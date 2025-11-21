@@ -11,7 +11,7 @@ use insta_cmd::assert_cmd_snapshot;
 fn shows_help() {
     // GIVEN
     let fx = Fixture::new();
-    let mut cmd = fx.cmd(["run", "--help"]);
+    let mut cmd = fx.cmd(["report", "--help"]);
 
     // WHEN
     // THEN
@@ -21,7 +21,7 @@ fn shows_help() {
     ----- stdout -----
     Show unreleased commits for repos
 
-    Usage: unreleased run [OPTIONS]
+    Usage: unreleased report [OPTIONS]
 
     Options:
       -c, --config-path <PATH>      Path to the unreleased's file (defaults to <YOUR_CONFIG_DIR>/unreleased/unreleased.toml)
@@ -42,7 +42,7 @@ fn shows_help() {
 fn debug_flag_works_for_defaults() {
     // GIVEN
     let fx = Fixture::new();
-    let mut cmd = fx.cmd(["run", "--debug"]);
+    let mut cmd = fx.cmd(["report", "--debug"]);
 
     // WHEN
     // THEN
@@ -52,7 +52,7 @@ fn debug_flag_works_for_defaults() {
     ----- stdout -----
     DEBUG INFO
 
-    command:                Run
+    command:                report
     config file path:       <NOT PROVIDED>
     repo filter:            <NOT PROVIDED>
     output format:          stdout
@@ -68,7 +68,7 @@ fn debug_flag_works_with_overridden_flags_for_stdout_output() {
     // GIVEN
     let fx = Fixture::new();
     let mut cmd = fx.cmd([
-        "run",
+        "report",
         "--config-path",
         "tests/assets/valid-config.toml",
         "--debug",
@@ -87,7 +87,7 @@ fn debug_flag_works_with_overridden_flags_for_stdout_output() {
     ----- stdout -----
     DEBUG INFO
 
-    command:                Run
+    command:                report
     config file path:       tests/assets/valid-config.toml
     repo filter:            repo-(a|b)
     output format:          stdout
@@ -103,7 +103,7 @@ fn debug_flag_works_with_overridden_flags_for_html_output() {
     // GIVEN
     let fx = Fixture::new();
     let mut cmd = fx.cmd([
-        "run",
+        "report",
         "--config-path",
         "tests/assets/valid-config.toml",
         "--debug",
@@ -127,7 +127,7 @@ fn debug_flag_works_with_overridden_flags_for_html_output() {
     ----- stdout -----
     DEBUG INFO
 
-    command:                Run
+    command:                report
     config file path:       tests/assets/valid-config.toml
     repo filter:            repo-(a|b)
     output format:          html
@@ -148,7 +148,7 @@ fn debug_flag_works_with_overridden_flags_for_html_output() {
 fn fails_if_provided_with_absent_config_file() {
     // GIVEN
     let fx = Fixture::new();
-    let mut cmd = fx.cmd(["run", "--config-path", "tests/assets/absent.toml"]);
+    let mut cmd = fx.cmd(["report", "--config-path", "tests/assets/absent.toml"]);
 
     // WHEN
     // THEN
@@ -170,7 +170,7 @@ fn fails_if_provided_with_absent_config_file() {
 fn fails_if_provided_with_config_with_invalid_toml() {
     // GIVEN
     let fx = Fixture::new();
-    let mut cmd = fx.cmd(["run", "--config-path", "tests/assets/invalid-toml.toml"]);
+    let mut cmd = fx.cmd(["report", "--config-path", "tests/assets/invalid-toml.toml"]);
 
     // WHEN
     // THEN
@@ -196,7 +196,11 @@ fn fails_if_provided_with_config_with_invalid_toml() {
 fn fails_if_provided_with_config_with_invalid_schema() {
     // GIVEN
     let fx = Fixture::new();
-    let mut cmd = fx.cmd(["run", "--config-path", "tests/assets/invalid-schema.toml"]);
+    let mut cmd = fx.cmd([
+        "report",
+        "--config-path",
+        "tests/assets/invalid-schema.toml",
+    ]);
 
     // WHEN
     // THEN
@@ -222,7 +226,7 @@ fn fails_if_provided_with_config_with_invalid_schema() {
 fn fails_if_provided_with_config_with_invalid_data() {
     // GIVEN
     let fx = Fixture::new();
-    let mut cmd = fx.cmd(["run", "--config-path", "tests/assets/invalid-data.toml"]);
+    let mut cmd = fx.cmd(["report", "--config-path", "tests/assets/invalid-data.toml"]);
 
     // WHEN
     // THEN
@@ -252,7 +256,7 @@ fn fails_if_provided_invalid_regex() {
     // GIVEN
     let fx = Fixture::new();
     let mut cmd = fx.cmd([
-        "run",
+        "report",
         "--config-path",
         "tests/assets/valid-config.toml",
         "--filter",
@@ -282,7 +286,7 @@ fn fails_if_no_repos_match_filter() {
     // GIVEN
     let fx = Fixture::new();
     let mut cmd = fx.cmd([
-        "run",
+        "report",
         "--config-path",
         "tests/assets/valid-config.toml",
         "--filter",
@@ -306,7 +310,7 @@ fn fails_if_provided_with_absent_html_template_file() {
     // GIVEN
     let fx = Fixture::new();
     let mut cmd = fx.cmd([
-        "run",
+        "report",
         "--config-path",
         "tests/assets/valid-config.toml",
         "--html-template",

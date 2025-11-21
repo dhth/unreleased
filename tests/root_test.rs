@@ -24,8 +24,8 @@ fn shows_help() {
     Usage: unreleased [OPTIONS] <COMMAND>
 
     Commands:
-      run   Show unreleased commits for repos
-      help  Print this message or the help of the given subcommand(s)
+      report  Show unreleased commits for repos
+      help    Print this message or the help of the given subcommand(s)
 
     Options:
           --debug  Output debug information without doing anything
