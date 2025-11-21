@@ -5,7 +5,10 @@
   </p>
 </p>
 
-View the commits to your GitHub repos since their last release.
+`unreleased` lets you view the commits to your GitHub repos since their last
+release.
+
+![html-report](https://tools.dhruvs.space/images/unreleased/v0-1-0/html-report.png)
 
 > [!NOTE]
 > unreleased is alpha software. Its interface and behaviour might change in the near
@@ -62,4 +65,7 @@ By default, `unreleased` prints its report to stdout.
 
 ### HTML report
 
-`unreleased` can also generate an HTML version of its report.
+`unreleased` can also generate an HTML version of its report. Mine is deployed
+[here][1].
+
+[1]: https://dhth.github.io/unreleased-report/
