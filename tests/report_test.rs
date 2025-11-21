@@ -247,6 +247,7 @@ fn fails_if_provided_with_config_with_invalid_data() {
          - repo #3 has errors:
            - owner is empty
          - repo #4 has errors:
+           - repo needs to be in the format "owner/repo"
            - head_ref is empty
     "#);
 }

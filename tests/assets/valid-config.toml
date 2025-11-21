@@ -3,11 +3,8 @@ repo = "owner/repo-a"
 
 [[repos]]
 repo = "owner/repo-b"
-
-[[repos]]
-repo = "owner/repo-c"
 head_ref = "branch"
 
 [[repos]]
-repo = "owner/repo-d"
+repo = "owner/repo-c"
 consider_prereleases = true
