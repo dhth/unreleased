@@ -14,7 +14,7 @@ pub(super) fn get_test_commit_logs() -> Vec<CommitLog> {
         commits: vec![Commit {
             sha: "ae7de14".to_string(),
             commit: CommitDetail {
-                message: "First commit".to_string(),
+                message: "add tracing support".to_string(),
                 author: Author {
                     name: "User A".to_string(),
                     date: Utc.with_ymd_and_hms(2025, 1, 15, 10, 0, 0).unwrap(),
@@ -72,7 +72,20 @@ pub(super) fn get_test_commit_logs() -> Vec<CommitLog> {
         html_url: "https://github.com/owner/app-two/compare/v2.0.0...main".to_string(),
     };
 
-    vec![log1, log2]
+    let log3 = CommitLog {
+        repo: Repo {
+            owner: "owner".into(),
+            repo: "app-three".into(),
+            head_ref: "main".into(),
+            consider_prereleases: true,
+        },
+        base_ref: "v0.1.0".into(),
+        head_ref: "main".into(),
+        commits: vec![],
+        html_url: "https://github.com/owner/app-three/compare/v0.1.0...main".to_string(),
+    };
+
+    vec![log1, log2, log3]
 }
 
 pub(super) const TEST_HTML_TEMPLATE: &str = r#"<!DOCTYPE html>
@@ -90,7 +103,9 @@ pub(super) const TEST_HTML_TEMPLATE: &str = r#"<!DOCTYPE html>
   <div>
     <h3>{{ log.repo }}</h3>
     <p>{{ log.base_ref }}..{{ log.head_ref }}</p>
+    {%- if log.compare_url %}
     <p>Compare: <a href="{{ log.compare_url }}">{{ log.compare_url }}</a></p>
+    {%- endif %}
     <ul>
       {%- for commit in log.commits %}
       <li>
