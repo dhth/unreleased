@@ -1,6 +1,7 @@
 use std::{fmt::Display, path::PathBuf};
 
 use super::repo::{RawRepo, Repo, RepoValidationError};
+use anyhow::Context;
 use clap::ValueEnum;
 use regex::Regex;
 use serde::Deserialize;
@@ -79,14 +80,11 @@ pub fn parse_config<S>(contents: S, repo_filter: Option<&Regex>) -> anyhow::Resu
 where
     S: AsRef<str>,
 {
-    let mut raw: RawConfig = toml::from_str(contents.as_ref())?;
+    let mut raw: RawConfig =
+        toml::from_str(contents.as_ref()).context("couldn't deserialize TOML")?;
 
     if let Some(regex) = repo_filter {
         raw.repos.retain(|v| regex.is_match(&v.repo));
-
-        if raw.repos.is_empty() {
-            anyhow::bail!("no repos match the provided filter");
-        }
     }
     let config: Config = raw.try_into()?;
 

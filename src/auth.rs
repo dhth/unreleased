@@ -2,7 +2,7 @@ use anyhow::Context;
 use std::env::VarError;
 use std::process::Command;
 
-const TOKEN_ENV_VAR: &str = "UNRELEASED_TOKEN";
+const TOKEN_ENV_VAR: &str = "UNRELEASED_GH_TOKEN";
 
 pub fn get_token() -> anyhow::Result<String> {
     let token = std::env::var(TOKEN_ENV_VAR).or_else(|err| match err {

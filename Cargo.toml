@@ -35,6 +35,7 @@ toml = { version = "0.9.8", features = ["parse"] }
 
 [dev-dependencies]
 insta = { version = "1.43.2", features = ["yaml"] }
+insta-cmd = "0.6.0"
 
 [lints.clippy]
 unwrap_used = "deny"

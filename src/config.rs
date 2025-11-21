@@ -22,19 +22,9 @@ pub fn get_from_file<P>(path: P, repo_filter: Option<&Regex>) -> anyhow::Result<
 where
     P: AsRef<Path>,
 {
-    let contents = std::fs::read_to_string(&path).with_context(|| {
-        format!(
-            "couldn't read file \"{}\"",
-            &path.as_ref().to_string_lossy()
-        )
-    })?;
+    let contents = std::fs::read_to_string(&path).context("couldn't read file")?;
 
-    let config = parse_config(&contents, repo_filter).with_context(|| {
-        format!(
-            "couldn't get config from file \"{}\"",
-            &path.as_ref().to_string_lossy()
-        )
-    })?;
+    let config = parse_config(&contents, repo_filter)?;
 
     Ok(config)
 }

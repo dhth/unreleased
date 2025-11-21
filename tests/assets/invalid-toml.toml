@@ -1,0 +1,5 @@
+[[repos]]
+repo = "owner/repo-a"
+
+[[repos]]
+repo  "owner/repo-b"

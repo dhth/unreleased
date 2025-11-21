@@ -60,12 +60,21 @@ async fn main() -> anyhow::Result<()> {
             };
 
             let config_path = config_file_path.unwrap_or(config::get_default_config_path()?);
-            let cfg = config::get_from_file(&config_path, repo_filter.as_ref())
-                .context("couldn't get config")?;
+            let unreleased_config = config::get_from_file(&config_path, repo_filter.as_ref())
+                .with_context(|| {
+                    format!(
+                        "couldn't get config from file \"{}\"",
+                        config_path.to_string_lossy()
+                    )
+                })?;
+
+            if unreleased_config.repos.is_empty() {
+                anyhow::bail!("no repos match the provided filter");
+            }
 
             let token = auth::get_token()?;
 
-            let changelogs = service::get_changelogs(&cfg.repos, &token).await;
+            let changelogs = service::get_changelogs(&unreleased_config.repos, &token).await;
             if !changelogs.errors.is_empty() {
                 return Err(anyhow::anyhow!(changelogs.errors));
             }
