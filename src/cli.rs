@@ -5,7 +5,7 @@ use clap::{Parser, Subcommand};
 
 const NOT_PROVIDED: &str = "<NOT PROVIDED>";
 
-/// unreleased shows the commits to your GitHub repos since their last release
+/// View the commits to your GitHub repos since their last release
 #[derive(Parser, Debug)]
 pub struct Args {
     #[command(subcommand)]
