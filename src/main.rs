@@ -22,7 +22,7 @@ async fn main() -> anyhow::Result<()> {
     }
 
     match args.command {
-        cli::UnreleasedCommand::Run {
+        cli::UnreleasedCommand::Report {
             config_file_path,
             repo_filter,
             output_format,

@@ -18,8 +18,8 @@ pub struct Args {
 #[derive(Subcommand, Debug)]
 pub enum UnreleasedCommand {
     /// Show unreleased commits for repos
-    #[command(name = "run")]
-    Run {
+    #[command(name = "report")]
+    Report {
         /// Path to the unreleased's file (defaults to <YOUR_CONFIG_DIR>/unreleased/unreleased.toml)
         #[arg(long = "config-path", short = 'c', value_name = "PATH")]
         config_file_path: Option<PathBuf>,
@@ -55,7 +55,7 @@ pub enum UnreleasedCommand {
 impl std::fmt::Display for Args {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let output = match &self.command {
-            UnreleasedCommand::Run {
+            UnreleasedCommand::Report {
                 config_file_path,
                 repo_filter,
                 output_format,
@@ -90,7 +90,7 @@ template path:          {}
 
                 format!(
                     r#"
-command:                Run
+command:                report
 config file path:       {}
 repo filter:            {}
 output format:          {}{}
