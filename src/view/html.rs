@@ -41,10 +41,10 @@ pub(super) fn render_output(
 
     match custom_template {
         Some(template) => tera
-            .add_raw_template("html", template)
+            .add_raw_template("template.html", template)
             .context("failed to parse HTML template")?,
         None => tera
-            .add_raw_template("html", BUILT_IN_TEMPLATE)
+            .add_raw_template("template.html", BUILT_IN_TEMPLATE)
             .context("failed to parse built-in HTML template")?,
     }
 
@@ -55,7 +55,7 @@ pub(super) fn render_output(
     context.insert("timestamp", &html_data.timestamp);
     context.insert("commit_logs", &html_data.commit_logs);
 
-    tera.render("html", &context)
+    tera.render("template.html", &context)
         .context("failed to render HTML template")
 }
 

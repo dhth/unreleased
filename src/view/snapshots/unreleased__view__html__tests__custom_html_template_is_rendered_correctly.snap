@@ -12,12 +12,12 @@ expression: html
   <p>Generated: 2025-01-16T12:00:00Z</p>
   <h2>Commit Logs</h2>
   <div>
-    <h3>owner/app-one</h3>
+    <h3>owner&#x2F;app-one</h3>
     <p>v1.0.0..main</p>
-    <p>Compare: <a href="https://github.com/owner/app-one/compare/v1.0.0...main">https://github.com/owner/app-one/compare/v1.0.0...main</a></p>
+    <p>Compare: <a href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;compare&#x2F;v1.0.0...main">https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;compare&#x2F;v1.0.0...main</a></p>
     <ul>
       <li>
-        <a href="https://github.com/owner/app-one/commit/ae7de14">ae7de14</a>
+        <a href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">ae7de14</a>
         - add tracing support
         - User A
         - Jan 15, 2025
@@ -25,24 +25,24 @@ expression: html
     </ul>
   </div>
   <div>
-    <h3>owner/app-two</h3>
+    <h3>owner&#x2F;app-two</h3>
     <p>v2.0.0..main</p>
-    <p>Compare: <a href="https://github.com/owner/app-two/compare/v2.0.0...main">https://github.com/owner/app-two/compare/v2.0.0...main</a></p>
+    <p>Compare: <a href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;compare&#x2F;v2.0.0...main">https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;compare&#x2F;v2.0.0...main</a></p>
     <ul>
       <li>
-        <a href="https://github.com/owner/app-two/commit/1443d43">1443d43</a>
+        <a href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">1443d43</a>
         - add cli test for when no versions match app filter
         - User A
         - Jan 16, 2025
       </li>
       <li>
-        <a href="https://github.com/owner/app-two/commit/c536d77">c536d77</a>
+        <a href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">c536d77</a>
         - allow filtering apps to run for (#3) commit
         - User B
         - Jan 16, 2025
       </li>
       <li>
-        <a href="https://github.com/owner/app-two/commit/2ff3e97">2ff3e97</a>
+        <a href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">2ff3e97</a>
         - allow configuring table style (#2) commit
         - User A
         - Jan 15, 2025
@@ -50,7 +50,7 @@ expression: html
     </ul>
   </div>
   <div>
-    <h3>owner/app-three</h3>
+    <h3>owner&#x2F;app-three</h3>
     <p>v0.1.0..main</p>
     <ul>
     </ul>

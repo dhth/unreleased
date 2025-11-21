@@ -50,19 +50,19 @@ expression: html
                 </div>
                 <div class="my-2 overflow-x-auto commit-log">
                     <details>
-                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner/app-one
+                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner&#x2F;app-one
                             <span class="text-[#bdae93] text-xs ml-1">(1 commit)</span>
                         </summary>
                         <div class="max-sm:p-2 p-4 bg-[#2e2c2c] changes-section max-sm:text-xs text-sm">
                             <div class="flex flex-col items-left gap-4 overflow-x-auto">
-                                <a class="text-[#928374]" href="https://github.com/owner/app-one/compare/v1.0.0...main" target="_blank">v1.0.0..main</a>
+                                <a class="text-[#928374]" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;compare&#x2F;v1.0.0...main" target="_blank">v1.0.0..main</a>
                                 <table class="w-full text-left max-sm:text-xs text-sm whitespace-nowrap">
                                     <tbody>
                                         <tr class="">
-                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https://github.com/owner/app-one/commit/ae7de14">ae7de14</a></td>
-                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https://github.com/owner/app-one/commit/ae7de14">add tracing support</a></td>
-                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https://github.com/owner/app-one/commit/ae7de14">User A</a></td>
-                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https://github.com/owner/app-one/commit/ae7de14">Jan 15, 2025</a></td>
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">ae7de14</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">add tracing support</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">User A</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-one&#x2F;commit&#x2F;ae7de14">Jan 15, 2025</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -72,31 +72,31 @@ expression: html
                 </div>
                 <div class="my-2 overflow-x-auto commit-log">
                     <details>
-                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner/app-two
+                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner&#x2F;app-two
                             <span class="text-[#bdae93] text-xs ml-1">(3 commits)</span>
                         </summary>
                         <div class="max-sm:p-2 p-4 bg-[#2e2c2c] changes-section max-sm:text-xs text-sm">
                             <div class="flex flex-col items-left gap-4 overflow-x-auto">
-                                <a class="text-[#928374]" href="https://github.com/owner/app-two/compare/v2.0.0...main" target="_blank">v2.0.0..main</a>
+                                <a class="text-[#928374]" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;compare&#x2F;v2.0.0...main" target="_blank">v2.0.0..main</a>
                                 <table class="w-full text-left max-sm:text-xs text-sm whitespace-nowrap">
                                     <tbody>
                                         <tr class="">
-                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https://github.com/owner/app-two/commit/1443d43">1443d43</a></td>
-                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https://github.com/owner/app-two/commit/1443d43">add cli test for when no versions match app filter</a></td>
-                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https://github.com/owner/app-two/commit/1443d43">User A</a></td>
-                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https://github.com/owner/app-two/commit/1443d43">Jan 16, 2025</a></td>
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">1443d43</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">add cli test for when no versions match app filter</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">User A</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;1443d43">Jan 16, 2025</a></td>
                                         </tr>
                                         <tr class="">
-                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https://github.com/owner/app-two/commit/c536d77">c536d77</a></td>
-                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https://github.com/owner/app-two/commit/c536d77">allow filtering apps to run for (#3) commit</a></td>
-                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https://github.com/owner/app-two/commit/c536d77">User B</a></td>
-                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https://github.com/owner/app-two/commit/c536d77">Jan 16, 2025</a></td>
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">c536d77</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">allow filtering apps to run for (#3) commit</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">User B</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;c536d77">Jan 16, 2025</a></td>
                                         </tr>
                                         <tr class="">
-                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https://github.com/owner/app-two/commit/2ff3e97">2ff3e97</a></td>
-                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https://github.com/owner/app-two/commit/2ff3e97">allow configuring table style (#2) commit</a></td>
-                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https://github.com/owner/app-two/commit/2ff3e97">User A</a></td>
-                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https://github.com/owner/app-two/commit/2ff3e97">Jan 15, 2025</a></td>
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">2ff3e97</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">allow configuring table style (#2) commit</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">User A</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="https:&#x2F;&#x2F;github.com&#x2F;owner&#x2F;app-two&#x2F;commit&#x2F;2ff3e97">Jan 15, 2025</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -106,7 +106,7 @@ expression: html
                 </div>
                 <div class="my-2 overflow-x-auto commit-log">
                     <details>
-                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner/app-three
+                        <summary class="text-[#83a598] cursor-pointer max-sm:text-sm mb-2">owner&#x2F;app-three
                             <span class="text-[#bdae93] text-xs ml-1">(0 commits)</span>
                         </summary>
                     </details>
