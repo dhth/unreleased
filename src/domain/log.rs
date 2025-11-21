@@ -1,6 +1,5 @@
 use super::{Commit, Repo};
 
-#[allow(unused)]
 #[derive(Debug)]
 pub struct CommitLog {
     pub repo: Repo,

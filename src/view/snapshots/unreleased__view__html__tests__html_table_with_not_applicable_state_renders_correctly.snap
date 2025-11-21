@@ -1,0 +1,14 @@
+---
+source: src/view/html.rs
+expression: html
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test</title>
+</head>
+<body>
+  <h1>test</h1>
+  <p>Generated: 2025-01-16T12:00:00Z</p>
+</body>
+</html>

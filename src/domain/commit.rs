@@ -1,7 +1,6 @@
 use chrono::{DateTime, Utc};
 use serde::Deserialize;
 
-#[allow(unused)]
 #[derive(Debug, Deserialize)]
 pub struct Commit {
     pub sha: String,

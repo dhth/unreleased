@@ -1,7 +1,7 @@
 use crate::domain::{Author, Commit, CommitDetail, CommitLog, Repo};
 use chrono::{TimeZone, Utc};
 
-pub(super) fn get_result_and_commit_logs() -> Vec<CommitLog> {
+pub(super) fn get_test_commit_logs() -> Vec<CommitLog> {
     let log1 = CommitLog {
         repo: Repo {
             owner: "owner".into(),
@@ -20,9 +20,9 @@ pub(super) fn get_result_and_commit_logs() -> Vec<CommitLog> {
                     date: Utc.with_ymd_and_hms(2025, 1, 15, 10, 0, 0).unwrap(),
                 },
             },
-            html_url: "https://github.com/owner/app-one/commit/abc1234567890".to_string(),
+            html_url: "https://github.com/owner/app-one/commit/ae7de14".to_string(),
         }],
-        html_url: "https://github.com/owner/app-one/compare/1.0.0...1.1.0".to_string(),
+        html_url: "https://github.com/owner/app-one/compare/v1.0.0...main".to_string(),
     };
 
     let log2 = CommitLog {
@@ -69,8 +69,41 @@ pub(super) fn get_result_and_commit_logs() -> Vec<CommitLog> {
                 html_url: "https://github.com/owner/app-two/commit/2ff3e97".to_string(),
             },
         ],
-        html_url: "https://github.com/owner/app-two/compare/2.0.0...2.1.0".to_string(),
+        html_url: "https://github.com/owner/app-two/compare/v2.0.0...main".to_string(),
     };
 
     vec![log1, log2]
 }
+
+pub(super) const TEST_HTML_TEMPLATE: &str = r#"<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  <p>Generated: {{ timestamp }}</p>
+
+  {%- if commit_logs %}
+  <h2>Commit Logs</h2>
+  {%- for log in commit_logs %}
+  <div>
+    <h3>{{ log.repo }}</h3>
+    <p>{{ log.base_ref }}..{{ log.head_ref }}</p>
+    <p>Compare: <a href="{{ log.compare_url }}">{{ log.compare_url }}</a></p>
+    <ul>
+      {%- for commit in log.commits %}
+      <li>
+        <a href="{{ commit.html_url }}">{{ commit.short_sha }}</a>
+        - {{ commit.message }}
+        - {{ commit.author }}
+        - {{ commit.date }}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endfor %}
+  {%- endif %}
+</body>
+</html>
+"#;

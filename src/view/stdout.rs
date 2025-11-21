@@ -17,10 +17,10 @@ const AUTHOR_COLOR_POOL: [TableColor; 6] = [
 
 const COMMIT_MESSAGE_MAX_LENGTH: usize = 80;
 
-pub fn render_commit_logs(
+pub(super) fn render_output(
     logs: &[CommitLog],
-    reference_time: DateTime<Utc>,
     plain_output: bool,
+    reference_time: DateTime<Utc>,
 ) -> String {
     let mut output = String::new();
 
@@ -100,7 +100,7 @@ fn truncate_message(message: &str, max_len: usize) -> String {
 mod tests {
     use std::collections::HashSet;
 
-    use super::super::testdata::get_result_and_commit_logs;
+    use super::super::testdata::get_test_commit_logs;
     use super::*;
     use crate::domain::{Author, Commit, CommitDetail, Repo};
     use chrono::TimeZone;
@@ -111,7 +111,7 @@ mod tests {
         let reference = Utc.with_ymd_and_hms(2025, 1, 16, 12, 0, 0).unwrap();
 
         // WHEN
-        let result = render_commit_logs(&get_result_and_commit_logs(), reference, true);
+        let result = render_output(&get_test_commit_logs(), true, reference);
 
         // THEN
         insta::assert_snapshot!(result, @r"
@@ -159,7 +159,7 @@ mod tests {
         };
 
         // WHEN
-        let result = render_commit_logs(&[log], reference, true);
+        let result = render_output(&[log], true, reference);
 
         // THEN
         insta::assert_snapshot!(result, @r"
