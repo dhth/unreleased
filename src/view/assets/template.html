@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark">
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
         <title>{{ title }}</title>
@@ -35,13 +36,14 @@
     </head>
     <body class="bg-[#282828] overflow-y-scroll">
         <div class="w-4/5 max-sm:w-full max-sm:px-4 mx-auto min-h-screen pt-8">
-            <h1 class="text-[#fbf1c7] text-3xl mb-4 font-semibold">
-                {{ title }}
-            </h1>
+            <div class="flex flex-col gap-2">
+                <h1 class="text-[#fbf1c7] text-3xl font-semibold">{{ title }}</h1>
+                <p class="text-[#928374] italic">Generated at {{ timestamp }}</p>
+            </div>
             {%- if commit_logs %}
-            <div class="overflow-x-auto pt-2">
-                <div class="flex gap-4 items-center pb-4">
-                    <button class="bg-[#83a598] text-[#282828] font-semibold text-xs p-2 hover:bg-[#fabd2f]" onclick="toggleAllDetails()">
+            <div class="overflow-x-auto pt-4">
+                <div class="flex gap-4 items-center pb-2">
+                    <button class="bg-[#83a598] text-[#282828] font-semibold text-xs p-2 hover:bg-[#fabd2f] cursor-pointer" onclick="toggleAllDetails()">
                     Toggle All
                     </button>
                 </div>
@@ -53,18 +55,26 @@
                         </summary>
                         {%- if log.commits %}
                         <div class="max-sm:p-2 p-4 bg-[#2e2c2c] changes-section max-sm:text-xs text-sm">
-                            <div class="flex flex-col items-left gap-4 overflow-x-auto">
+                            <div class="flex flex-col items-start gap-4 overflow-x-auto">
                                 {%- if log.compare_url %}
-                                <a class="text-[#928374]" href="{{ log.compare_url }}" target="_blank">{{ log.base_ref }}..{{ log.head_ref }}</a>
+                                <a class="text-[#928374]" href="{{ log.compare_url }}" target="_blank" rel="noopener noreferrer">{{ log.base_ref }}..{{ log.head_ref }}</a>
                                 {%- endif %}
                                 <table class="w-full text-left max-sm:text-xs text-sm whitespace-nowrap">
+                                    <thead class="text-[#d5c4a1]">
+                                        <tr>
+                                            <th class="px-4 py-1">Commit</th>
+                                            <th class="px-4 py-1">Message</th>
+                                            <th class="px-4 py-1">Author</th>
+                                            <th class="px-4 py-1">Date</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         {%- for commit in log.commits %}
-                                        <tr class="">
-                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" href="{{ commit.html_url }}">{{ commit.short_sha }}</a></td>
-                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" href="{{ commit.html_url }}">{{ commit.message }}</a></td>
-                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" href="{{ commit.html_url }}">{{ commit.author }}</a></td>
-                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" href="{{ commit.html_url }}">{{ commit.date }}</a></td>
+                                        <tr>
+                                            <td class="px-4 py-1 text-[#fabd2f]"><a target="_blank" rel="noopener noreferrer" href="{{ commit.html_url }}">{{ commit.short_sha }}</a></td>
+                                            <td class="px-4 py-1 text-[#83a598]"><a target="_blank" rel="noopener noreferrer" href="{{ commit.html_url }}">{{ commit.message }}</a></td>
+                                            <td class="px-4 py-1 text-[#d3869b]"><a target="_blank" rel="noopener noreferrer" href="{{ commit.html_url }}">{{ commit.author }}</a></td>
+                                            <td class="px-4 py-1 text-[#bdae93]"><a target="_blank" rel="noopener noreferrer" href="{{ commit.html_url }}">{{ commit.date }}</a></td>
                                         </tr>
                                         {%- endfor %}
                                     </tbody>
@@ -77,31 +87,30 @@
                 {%- endfor %}
             </div>
             {%- endif %}
-            <p class="text-[#928374] italic my-10 pt-2 border-t-2 border-[#92837433]">Built using <a class="font-bold" href="https://github.com/dhth/unreleased" target="_blank">unreleased</a></p>
+            <p class="text-[#928374] italic my-10 pt-2 border-t-2 border-[#92837433]">Built using <a class="font-bold" href="https://github.com/dhth/unreleased" target="_blank" rel="noopener noreferrer">unreleased</a></p>
         </div>
-        <button id="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'instant'});"
-            class="hidden fixed bottom-4 left-4 z-50 bg-[#928374] text-[#282828] px-4 py-2 rounded-full shadow-lg hover:bg-[#d3869b] font-bold transition"
-            aria-label="Go to top">
+        <button id="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+            class="hidden fixed bottom-4 left-4 z-50 bg-[#928374] text-[#282828] px-4 py-2 rounded-full shadow-lg hover:bg-[#d3869b] font-bold transition">
         ↑
         </button>
-    </body>
-    <script>
-        const scrollToTopButton = document.getElementById("scrollToTop");
-        let allDetailsOpen = false;
-
-        function toggleAllDetails() {
-            allDetailsOpen = !allDetailsOpen;
-            document.querySelectorAll("details").forEach((detail) => {
-                detail.open = allDetailsOpen;
-            });
-        }
-
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 100) {
-                scrollToTopButton.classList.remove("hidden");
-            } else {
-                scrollToTopButton.classList.add("hidden");
+        <script>
+            const scrollToTopButton = document.getElementById("scrollToTop");
+            let allDetailsOpen = false;
+            
+            function toggleAllDetails() {
+                allDetailsOpen = !allDetailsOpen;
+                document.querySelectorAll("details").forEach((detail) => {
+                    detail.open = allDetailsOpen;
+                });
             }
-        });
-    </script>
+            
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 100) {
+                    scrollToTopButton.classList.remove("hidden");
+                } else {
+                    scrollToTopButton.classList.add("hidden");
+                }
+            });
+        </script>
+    </body>
 </html>
