@@ -126,7 +126,7 @@ mod tests {
 
         // WHEN
         let html =
-            render_output(&commit_logs, None, "versions", now).expect("result should've been Ok");
+            render_output(&commit_logs, None, "unreleased", now).expect("result should've been Ok");
 
         // THEN
         insta::assert_snapshot!(html);
@@ -139,7 +139,7 @@ mod tests {
         let now = Utc.with_ymd_and_hms(2025, 1, 16, 12, 0, 0).unwrap();
 
         // WHEN
-        let html = render_output(&commit_logs, Some(TEST_HTML_TEMPLATE), "versions", now)
+        let html = render_output(&commit_logs, Some(TEST_HTML_TEMPLATE), "unreleased", now)
             .expect("result should've been Ok");
 
         // THEN

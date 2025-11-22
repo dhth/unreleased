@@ -5,10 +5,10 @@ expression: html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>versions</title>
+  <title>unreleased</title>
 </head>
 <body>
-  <h1>versions</h1>
+  <h1>unreleased</h1>
   <p>Generated: 2025-01-16T12:00:00Z</p>
   <h2>Commit Logs</h2>
   <div>
