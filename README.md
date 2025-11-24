@@ -13,7 +13,7 @@ release.
 
 ![html-report](https://tools.dhruvs.space/images/unreleased/v0-1-0/html-report.png)
 
-> Read more about how I leverage unreleased for my needs [here][4].
+> Read more about how I leverage unreleased for my needs [here][2].
 
 ⚡️ Usage
 ---
