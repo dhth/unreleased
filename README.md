@@ -70,4 +70,4 @@ By default, `unreleased` prints its report to stdout.
 [here][1].
 
 [1]: https://unreleased.gh.dhruvs.space
-[2]: http://devlog.dhruvs.space/log/009
+[2]: https://devlog.dhruvs.space/log/009
