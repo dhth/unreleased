@@ -69,5 +69,5 @@ By default, `unreleased` prints its report to stdout.
 `unreleased` can also generate an HTML version of its report. Mine is deployed
 [here][1].
 
-[1]: https://dhth.github.io/unreleased-report/
-[2]: http://devlog.dhruvs.space/log/009/
+[1]: https://unreleased.gh.dhruvs.space
+[2]: http://devlog.dhruvs.space/log/009
