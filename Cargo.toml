@@ -1,11 +1,11 @@
 [package]
 name = "unreleased"
-version = "0.1.0-alpha.1"
+version = "0.1.0"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/dhth/unreleased"
 description = "view the commits to your GitHub repos since their last release"
-homepage = "https://github.com/dhth/unreleased"
+homepage = "https://tools.dhruvs.space/unreleased"
 keywords = [
     "cli",
     "github",
