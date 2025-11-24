@@ -2,6 +2,9 @@
   <h1 align="center">unreleased</h1>
   <p align="center">
     <a href="https://github.com/dhth/unreleased/actions/workflows/main.yml"><img alt="GitHub release" src="https://img.shields.io/github/actions/workflow/status/dhth/unreleased/main.yml?style=flat-square"></a>
+    <a href="https://crates.io/crates/unreleased"><img alt="GitHub release" src="https://img.shields.io/crates/v/unreleased?style=flat-square"></a>
+    <a href="https://github.com/dhth/unreleased/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/release/dhth/unreleased.svg?style=flat-square"></a>
+    <a href="https://github.com/dhth/unreleased/releases"><img alt="Commits since latest release" src="https://img.shields.io/github/commits-since/dhth/unreleased/latest?style=flat-square"></a>
   </p>
 </p>
 
@@ -10,9 +13,7 @@ release.
 
 ![html-report](https://tools.dhruvs.space/images/unreleased/v0-1-0/html-report.png)
 
-> [!NOTE]
-> unreleased is alpha software. Its interface and behaviour might change in the near
-> future.
+> Read more about how I leverage unreleased for my needs [here][4].
 
 ⚡️ Usage
 ---
@@ -69,3 +70,4 @@ By default, `unreleased` prints its report to stdout.
 [here][1].
 
 [1]: https://dhth.github.io/unreleased-report/
+[2]: http://devlog.dhruvs.space/log/009/
