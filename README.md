@@ -15,6 +15,25 @@ release.
 
 > Read more about how I leverage unreleased for my needs [here][2].
 
+💾 Installation
+---
+
+**homebrew**:
+
+```sh
+brew install dhth/tap/unreleased
+```
+
+**cargo**:
+
+```sh
+cargo install unreleased
+```
+
+Or get the binaries directly from a Github [release][3]. Read more about
+verifying the authenticity of released artifacts
+[here](#-verifying-release-artifacts).
+
 ⚡️ Usage
 ---
 
@@ -69,5 +88,45 @@ By default, `unreleased` prints its report to stdout.
 `unreleased` can also generate an HTML version of its report. Mine is deployed
 [here][1].
 
+🔐 Verifying release artifacts
+---
+
+In case you get the `unreleased` binary directly from a [release][1], you may want
+to verify its authenticity. Checksums are applied to all released artifacts, and
+the resulting checksum file is attested using [Github Attestations][2].
+
+Steps to verify (replace `A.B.C` in the commands below with the version you
+want):
+
+1. Download the sha256 checksum file for your platform from the release:
+
+   ```shell
+   curl -sSLO https://github.com/dhth/unreleased/releases/download/vA.B.C/unreleased-x86_64-unknown-linux-gnu.tar.xz.sha256
+   ```
+
+2. Verify the integrity of the checksum file using [gh][3].
+
+   ```shell
+   gh attestation verify unreleased-x86_64-unknown-linux-gnu.tar.xz.sha256 --repo dhth/unreleased
+   ```
+
+3. Download the compressed archive you want, and validate its checksum:
+
+   ```shell
+   curl -sSLO https://github.com/dhth/unreleased/releases/download/vA.B.C/unreleased-x86_64-unknown-linux-gnu.tar.xz
+   sha256sum --ignore-missing -c unreleased-x86_64-unknown-linux-gnu.tar.xz.sha256
+   ```
+
+3. If checksum validation goes through, uncompress the archive:
+
+   ```shell
+   tar -xzf unreleased-x86_64-unknown-linux-gnu.tar.xz
+   cd unreleased-x86_64-unknown-linux-gnu
+   ./unreleased -h
+   # profit!
+   ```
+
 [1]: https://unreleased.gh.dhruvs.space
 [2]: https://devlog.dhruvs.space/log/009
+[3]: https://github.com/dhth/unreleased/releases
+[4]: http://devlog.dhruvs.space/log/009/
