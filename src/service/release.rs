@@ -12,7 +12,7 @@ pub(super) async fn get_latest_release(
 
     let url = format!(
         "https://api.github.com/repos/{}/{}/releases",
-        &repo.owner, &repo.repo
+        repo.owner, repo.repo
     );
 
     let response = client
