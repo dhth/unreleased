@@ -20,7 +20,7 @@ pub(super) async fn get_commit_log(
 
     let url = format!(
         "https://api.github.com/repos/{}/{}/compare/{}...{}",
-        &repo.owner, &repo.repo, base_ref, head_ref
+        repo.owner, repo.repo, base_ref, head_ref
     );
 
     let response = client
