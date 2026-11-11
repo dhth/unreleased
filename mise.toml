@@ -11,11 +11,11 @@ _.file = ".env"
 cargo-deny = "aqua:EmbarkStudios/cargo-deny"
 
 [tools]
-actionlint = "1.7.12"
-cargo-deny = "0.20.2"
+actionlint = "latest"
+cargo-deny = "latest"
 cargo-dist = "0.31.0"
 cargo-insta = "1.48.0"
-yamlfmt = "0.21.0"
+yamlfmt = "latest"
 
 [tasks.all]
 alias = "a"
