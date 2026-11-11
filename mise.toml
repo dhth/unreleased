@@ -7,9 +7,12 @@ task.run_auto_install = false
 [env]
 _.file = ".env"
 
+[tool_alias]
+cargo-deny = "aqua:EmbarkStudios/cargo-deny"
+
 [tools]
 actionlint = "1.7.12"
-"aqua:EmbarkStudios/cargo-deny" = "0.20.2"
+cargo-deny = "0.20.2"
 cargo-dist = "0.31.0"
 cargo-insta = "1.48.0"
 yamlfmt = "0.21.0"
